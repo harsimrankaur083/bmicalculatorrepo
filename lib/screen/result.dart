@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:bmicalculator/constants/app_colors.dart';
 import 'package:bmicalculator/brain.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_share_me/flutter_share_me.dart';
 
 void main() => runApp(ResultScreen());
 class ResultScreen extends StatefulWidget {
@@ -41,7 +42,15 @@ class _ResultScreenState extends State<ResultScreen> {
           textAlign: TextAlign.center,
         ),
           actions: <Widget>[
-
+            IconButton(
+              icon: Icon(Icons.share,color: Colors.black,),
+              tooltip: "Save Todo and Retrun to List",
+              onPressed: () {
+                String msg='${widget.bodyIndex},${widget.shortMessage},${widget.guideLines}%';
+                FlutterShareMe()
+                    .shareToSystem( msg: msg);
+              },
+            )
 
           ],
 

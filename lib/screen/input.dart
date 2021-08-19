@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:bmicalculator/constants/app_colors.dart';
 import 'package:bmicalculator/my_widget/round_icon_button.dart';
 import 'package:bmicalculator/brain.dart';
+import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 
 
 
@@ -301,7 +302,20 @@ class _ScreenOneState extends State<ScreenOne> {
                               mainAxisSize: MainAxisSize.max,
 
                               children: <Widget>[
+                                LiteRollingSwitch(
+                                  //initial value
+                                  value: true,
+                                  textOn: 'Male',
+                                  textOff: 'Female',
+                                  colorOn: Colors.blue[700],
+                                  colorOff: Colors.pink[300],
 
+                                  textSize: 16.0,
+                                  onChanged: (bool male) {
+                                    //Use it to manage the different states
+                                    print('Current State of SWITCH IS: $male');
+                                  },
+                                ),
                                 Container(
 
                                     child: Text(
